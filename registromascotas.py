@@ -25,7 +25,21 @@ def eliminar(nombreAborrar):
             print(f"mascota eliminada {nombre_mascotas[i]}")
             return ##detener la busqueda de mascotas con el mismo nombre OPCIONAL
 
-def ordenarMascotita():
+def ordenarMascotita(): #burbuja
+    for i in range(len(nombre_mascotas)):
+        for j in range(len(nombre_mascotas)-1): #penúltimo elemento y compararlo cn el último
+            mascota1 = nombre_mascotas[j] # mascota1 = zeus
+            mascota2 = nombre_mascotas[j+1] # mascota2= luly
+
+               # z(122)      >l(108)
+            if mascota1[0] > mascota2[0]: #true
+                temporal = nombre_mascotas[j]
+                nombre_mascotas[j] = nombre_mascotas[j+1]
+                nombre_mascotas[j+1]=temporal
+
+           # nombre_mascotas [j] [zeus, luly, braco] ASCII     
+             #122(z), 108(l), 98(b)
+    print("mascotas ordenadas !!")     
 
 def main():
   global nombre_mascotas, edad_mascotas #para modificar las listas declaradas fuera del arreglo
@@ -50,7 +64,8 @@ def main():
             mascotaAborrar = input("Ingrese mascota a borrar: ")
             eliminar(mascotaAborrar)
         elif opcion==4:
-            print("ordenar")
+            ordenarMascotita()
+            mostrar()
         elif opcion==5:
             print("saliendo...")
         else: print("opcion inválida")
